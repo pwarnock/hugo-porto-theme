@@ -99,9 +99,11 @@
           </a>
         </li>
       {{ end }}
-      <li class="py-2">
-        <a href="/files/Andrew Molyuk.pdf" target="_blank" class="cursor-pointer font-normal">Get my CV</a>
-      </li>
+       {{ if site.Params.cvPath }}
+       <li class="py-2">
+         <a href="{{ site.Params.cvPath }}" target="_blank" class="cursor-pointer font-normal">Get my CV</a>
+       </li>
+       {{ end }}
     </ul>
   </div>
 </div>
