@@ -10,6 +10,11 @@
     font-family: 'Roboto', sans-serif;
   }
 
+  .dark body {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+
   h1 {
     @apply text-4xl font-normal;
   }
@@ -98,3 +103,5 @@
     }
   }
 }
+
+

@@ -89,7 +89,12 @@
     </ul>
   </div>
 
-  <div class="block lg:hidden mt-2">
+  <button id="theme-toggle" class="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200" title="Toggle dark mode">
+    <i class="bx bx-sun text-xl" id="theme-icon-sun"></i>
+    <i class="bx bx-moon text-xl hidden" id="theme-icon-moon"></i>
+  </button>
+
+  <div class="block lg:hidden mt-2 ml-4">
     <button @click="mobileMenu = true">
       <i class="bx bx-menu text-3xl"></i>
     </button>
