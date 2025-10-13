@@ -2,7 +2,7 @@
 <div class="container mx-auto px-4 py-16">
   <h2 class="text-3xl font-bold text-center mb-8">Latest Posts</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    {{ range first 6 (where .Site.RegularPages "Type" "posts") }}
+    {{ range first 6 (where $.Site.RegularPages "Type" "posts") }}
       <div class="bg-white rounded-lg shadow-md p-6">
         <h3 class="text-xl font-semibold mb-2"><a href="{{ .Permalink }}" class="text-blue-600 hover:text-blue-800">{{ .Title }}</a></h3>
         <p class="text-gray-600 mb-4">{{ .Summary | plainify | truncate 150 }}</p>
