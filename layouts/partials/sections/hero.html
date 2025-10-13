@@ -26,8 +26,16 @@
   {{ if .description }}{{ $description = .description }}{{ end }}
 {{ end }}
 
-{{ $avatar = (resources.Get $avatar).Resize "150x150" }}
-
+{{/* If avatar is a local asset, resize */}}
+{{ $avatarUrl := $avatar }}
+{{ $avatarResource := resources.Get $avatar }}
+{{ if $avatarResource }}
+  {{ if eq $avatarResource.MediaType.SubType "svg" }}
+    {{ $avatarUrl = $avatarResource.RelPermalink }}
+  {{ else }}
+    {{ $avatarUrl = ($avatarResource.Resize "150x150").RelPermalink }}
+  {{ end }}
+{{ end }}
 
 <div class="w-full flex items-center justify-center">
   <div class="w-full">
@@ -44,7 +52,7 @@
       <div class="items-center justify-center flex p-5 md:p-0">
         <img
           class="w-28 xl:w-36 rounded-full"
-          src="{{ $avatar.RelPermalink }}"
+          src="{{ $avatarUrl }}"
           alt="{{ $text2 }}"
           title="{{ $text2 }}" />
       </div>

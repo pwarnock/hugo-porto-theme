@@ -220,12 +220,32 @@ logo  = "img/logo.svg"
 Where:
 
 - `title` is the title of the website.
-- `logo` is the path to the logo image.
+- `logo` is the path to the logo image (supports both local asset paths like `"img/logo.svg"` and external URLs).
 - `button` is the configuration of the button in the navigation bar.
   - `enabled` is a boolean value to enable or disable the button.
   - `text` is the text of the button.
   - `link` is the URL of the button.
   - `target` is the target attribute of the button.
+
+## Troubleshooting
+
+### Logo Not Displaying
+
+If you encounter issues with logo rendering (e.g., "nil pointer evaluating resource.Resource.RelPermalink"), ensure your
+`data/navbar.toml` file has a valid logo configuration:
+
+```toml
+# Use a local asset (preferred)
+logo = "img/logo.svg"
+
+# Or use an external URL
+logo = "https://example.com/logo.png"
+
+# Or use an empty string to use the default
+logo = ""
+```
+
+The theme includes robust error handling to prevent rendering failures regardless of logo configuration.
 
 ## Real-world usage
 
@@ -243,6 +263,65 @@ to contributions and would be happy to discuss potential improvements to the the
 
 If you would like to contribute to the theme, please fork the repository and submit a pull request. I will review any
 pull requests and merge them if they provide value to the theme.
+
+### Development Workflow
+
+This project uses [semantic-release](https://semantic-release.gitbook.io/) for automated version management and
+releases.
+
+**Commit Message Format:**
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/) specification. Commit messages are automatically
+validated using commitlint:
+
+- `feat:` - new features (triggers minor version bump)
+- `fix:` - bug fixes (triggers patch version bump)
+- `docs:` - documentation changes
+- `style:` - formatting, missing semicolons, etc.
+- `refactor:` - code changes that neither fix bugs nor add features
+- `perf:` - performance improvements
+- `test:` - adding missing tests
+- `build:` - changes that affect the build system
+- `ci:` - changes to CI configuration files
+- `chore:` - maintenance tasks
+
+**Examples:**
+
+```bash
+feat: add dark mode toggle
+fix: resolve navbar mobile menu issue
+docs: update installation instructions
+```
+
+**Breaking Changes:** Add `BREAKING CHANGE:` in the commit body or use `!` after the type (e.g., `feat!:`) to trigger a
+major version bump.
+
+**Release Process:**
+
+Releases are fully automated through GitHub Actions:
+
+1. **On Pull Request**: CI workflow runs linting, building, and commit message validation
+2. **On Push to Main**: CI workflow runs first, then release workflow triggers
+3. **Semantic Release**: Analyzes commit messages to determine version bump type
+4. **Automated Tasks**: Updates `package.json`, creates git tag, and publishes GitHub release with generated notes
+
+**CI/CD Pipeline:**
+
+- **Linting**: Markdown and SCSS validation
+- **Building**: TailwindCSS compilation and Hugo static site generation
+- **Commit Validation**: Commitlint ensures conventional commit format
+- **Release**: Automatic versioning and GitHub release creation
+
+**Local Testing:**
+
+```bash
+# Test what the next release would be (dry-run)
+make release-dry
+
+# Run CI checks locally
+make build
+make lint
+```
 
 I appreciate any contributions and would like to thank you in advance for your support.
 
