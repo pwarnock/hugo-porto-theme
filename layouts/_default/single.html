@@ -10,7 +10,9 @@
         <h1 class="font-medium text-gray-700 dark:text-gray-100 text-3xl md:text-4xl mb-5">{{ .Title }}</h1>
         {{ partial "posts/meta.html" . }}
 
-        {{ .Content | safeHTML }}
+        <div class="text-gray-700 dark:text-gray-100">
+          {{ .Content | safeHTML }}
+        </div>
       </div>
     </div>
   </div>
