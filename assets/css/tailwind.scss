@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@config {
+  darkMode: 'class';
+}
+
 @layer base {
   body {
     @apply bg-gray-100 text-gray-600 text-lg font-light;
