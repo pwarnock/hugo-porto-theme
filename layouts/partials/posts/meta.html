@@ -18,7 +18,7 @@
     <i class="bx bx-purchase-tag-alt text-gray-500 h-4"></i>
     {{ range index .Params "tags" }}
       {{ $href := print (absURL "tags/") (urlize .) }}
-      <a class="text-blue-500 hover:underline text-sm mx-1 h-5" href="{{ $href }}" aria-label="{{ . }}">{{ . }}</a>
+      <a class="text-blue-500 hover:underline text-sm mx-1 h-5" href="{{ $href }}" {{ if . }}aria-label="{{ . }}"{{ end }}>{{ . }}</a>
     {{ end }}
   </div>
 </div>
