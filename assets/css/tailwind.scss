@@ -15,6 +15,22 @@
     color: #f9fafb;
   }
 
+.dark .bg-gray-50 {
+  background-color: #374151;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-600 {
+  color: #9ca3af;
+}
+
+.dark .text-gray-500 {
+  color: #6b7280;
+}
+
   h1 {
     @apply text-4xl font-normal;
   }
