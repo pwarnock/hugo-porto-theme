@@ -2,7 +2,7 @@
 
 {{ $styles := resources.Get "css/tailwind.scss" }}
 {{ if $styles }}
-  {{ if site.IsServer }}
+  {{ if hugo.IsServer }}
     {{ $styles = $styles | toCSS }}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen" />
   {{ else }}
