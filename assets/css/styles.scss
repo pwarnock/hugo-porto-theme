@@ -1,1 +1,35 @@
-@import "tailwind.scss";
+body {
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+section {
+  padding: 1.25rem 0;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 2.5rem 0;
+  }
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-outline-2 {
+  -webkit-text-stroke: 2px rgb(156, 163, 175);
+}
+
+.font-outline-3 {
+  -webkit-text-stroke: 3px rgb(156, 163, 175);
+}

@@ -11,5 +11,23 @@ module.exports = {
     'max-w-md', 'mx-auto', 'flex', 'px-4', 'py-2', 'rounded-l-md', 'focus:outline-none', 'focus:ring-2', 'focus:ring-blue-500',
     'rounded-r-md', 'hover:bg-blue-600', 'bg-blue-500', 'text-white'
   ],
+  theme: {
+    extend: {
+      colors: {
+        'light-bg': 'white',
+        'dark-bg': '#111827',
+        'light-text-primary': '#1f2937',
+        'dark-text-primary': '#f9fafb',
+        'light-text-secondary': '#6b7280',
+        'dark-text-secondary': '#9ca3af',
+        'light-bg-secondary': '#f3f4f6',
+        'dark-bg-secondary': '#1f2937',
+      },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
+    },
+  },
   plugins: [],
 };
