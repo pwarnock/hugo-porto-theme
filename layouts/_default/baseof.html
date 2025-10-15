@@ -5,7 +5,33 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body :class="{ 'overflow-hidden max-h-screen': mobileMenu }" class="relative" x-data="{ mobileMenu: false }">
+
+  <body
+    :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
+    class="relative"
+    x-data="{
+    mobileMenu: false,
+    themes: ['light', 'dark', 'retro', 'cyberpunk', 'halloween'],
+    init() {
+    const saved = localStorage.getItem('theme') || 'light';
+    this.applyTheme(saved);
+    },
+    applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    },
+    nextTheme() {
+    const current = this.getCurrentTheme();
+    const currentIndex = this.themes.indexOf(current);
+    const nextIndex = (currentIndex + 1) % this.themes.length;
+    const nextTheme = this.themes[nextIndex];
+    this.applyTheme(nextTheme);
+    localStorage.setItem('theme', nextTheme);
+    },
+    getCurrentTheme() {
+    return document.documentElement.getAttribute('data-theme') || 'light';
+    }
+    }"
+    x-init="init()">
     <div id="main" class="relative max-w-screen-xl mx-auto px-5">
       {{ partial "navbar.html" . }}
       <main>
@@ -15,35 +41,6 @@
         {{ partial "footer.html" . }}
       </footer>
      </div>
-     <script>
-       const themeToggle = document.getElementById('theme-toggle');
-       const sunIcon = document.getElementById('theme-icon-sun');
-       const moonIcon = document.getElementById('theme-icon-moon');
-
-       // Check for saved theme preference or default to light mode
-       const currentTheme = localStorage.getItem('theme') || 'light';
-       if (currentTheme === 'dark') {
-         document.body.classList.add('dark');
-         sunIcon.classList.add('hidden');
-         moonIcon.classList.remove('hidden');
-       } else {
-         document.body.classList.remove('dark');
-         sunIcon.classList.remove('hidden');
-         moonIcon.classList.add('hidden');
-       }
-
-       themeToggle.addEventListener('click', () => {
-         const isDark = document.body.classList.toggle('dark');
-         if (isDark) {
-           localStorage.setItem('theme', 'dark');
-           sunIcon.classList.add('hidden');
-           moonIcon.classList.remove('hidden');
-         } else {
-           localStorage.setItem('theme', 'light');
-           sunIcon.classList.remove('hidden');
-           moonIcon.classList.add('hidden');
-         }
-       });
-     </script>
+     
    </body>
 </html>

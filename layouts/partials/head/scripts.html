@@ -1,38 +1,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Dark mode toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const sunIcon = document.getElementById('theme-icon-sun');
-  const moonIcon = document.getElementById('theme-icon-moon');
-  const html = document.documentElement;
 
-  if (themeToggle && sunIcon && moonIcon) {
-    // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-      html.classList.add('dark');
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-        sunIcon.classList.remove('hidden');
-        moonIcon.classList.add('hidden');
-      } else {
-        html.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        sunIcon.classList.add('hidden');
-        moonIcon.classList.remove('hidden');
-      }
-    });
-  }
-});
-</script>
 
 {{ $scripts := resources.Get "scripts.js" }}
 {{ if $scripts }}
