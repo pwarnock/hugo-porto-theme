@@ -22,10 +22,72 @@ module.exports = {
       fontSize: {
         'h1': '2.25rem',
       },
-      fontWeight: {
-        'h1': '400',
-      },
+       fontWeight: {
+         'h1': '400',
+       },
+       typography: {
+         DEFAULT: {
+           css: {
+             color: 'hsl(var(--bc))',
+             fontFamily: 'Roboto, sans-serif',
+             h1: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             h2: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             h3: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             h4: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             h5: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             h6: {
+               color: 'hsl(var(--bc))',
+               fontFamily: 'Poppins, sans-serif',
+             },
+             strong: {
+               color: 'hsl(var(--bc))',
+             },
+             a: {
+               color: 'hsl(var(--p))',
+               '&:hover': {
+                 color: 'hsl(var(--pf))',
+               },
+             },
+             blockquote: {
+               color: 'hsl(var(--bc))',
+               borderLeftColor: 'hsl(var(--b3))',
+             },
+             code: {
+               color: 'hsl(var(--bc))',
+               backgroundColor: 'hsl(var(--b3))',
+             },
+             'code::before': {
+               content: 'none',
+             },
+             'code::after': {
+               content: 'none',
+             },
+             pre: {
+               backgroundColor: 'hsl(var(--b2))',
+               color: 'hsl(var(--bc))',
+             },
+           },
+         },
+       },
     },
   },
-  plugins: [],
+  plugins: [require('daisyui'), require('@tailwindcss/typography')],
+  daisyui: {
+    themes: ['light', 'dark', 'retro', 'cyberpunk', 'halloween'],
+  },
 };
