@@ -3,11 +3,11 @@
 
 lint:
 	npx markdownlint '**/*.md' --ignore node_modules
-	npx stylelint '**/*.scss'
+	npx stylelint '**/*.css'
 @PHONY: lint
 
 dev-tailwind:
-	npx tailwindcss -i ./assets/css/tailwind.scss -o ./static/css/tailwind.css --minify --watch
+	npx postcss assets/css/tailwind.css -o static/css/tailwind.css --watch
 @PHONY: tailwind
 
 dev-hugo:
@@ -20,7 +20,7 @@ dev:
 
 build: lint
 	rm -rf ./public
-	npx tailwindcss -i ./assets/css/tailwind.scss -o ./static/css/tailwind.css --minify
+	npx postcss assets/css/tailwind.css -o static/css/tailwind.css --minify
 	hugo --minify
 @PHONY: build
 
