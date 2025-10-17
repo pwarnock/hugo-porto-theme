@@ -1181,6 +1181,14 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
+  .badge-ghost {
+    @layer daisyui.modifier {
+      border-color: var(--color-base-200);
+      background-color: var(--color-base-200);
+      color: var(--color-base-content);
+      background-image: none;
+    }
+  }
   .border-base-300 {
     border-color: var(--color-base-300);
   }
@@ -1446,54 +1454,6 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
-  .badge-accent {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-accent);
-      --badge-fg: var(--color-accent-content);
-    }
-  }
-  .badge-error {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-error);
-      --badge-fg: var(--color-error-content);
-    }
-  }
-  .badge-info {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-info);
-      --badge-fg: var(--color-info-content);
-    }
-  }
-  .badge-neutral {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-neutral);
-      --badge-fg: var(--color-neutral-content);
-    }
-  }
-  .badge-primary {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-primary);
-      --badge-fg: var(--color-primary-content);
-    }
-  }
-  .badge-secondary {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-secondary);
-      --badge-fg: var(--color-secondary-content);
-    }
-  }
-  .badge-success {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-success);
-      --badge-fg: var(--color-success-content);
-    }
-  }
-  .badge-warning {
-    @layer daisyui.modifier {
-      --badge-color: var(--color-warning);
-      --badge-fg: var(--color-warning-content);
-    }
-  }
   .last\:border-b-0 {
     &:last-child {
       border-bottom-style: var(--tw-border-style);
@@ -1507,18 +1467,6 @@
         --tw-scale-y: 125%;
         --tw-scale-z: 125%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:badge-ghost {
-    &:hover {
-      @media (hover: hover) {
-        @layer daisyui.modifier {
-          border-color: var(--color-base-200);
-          background-color: var(--color-base-200);
-          color: var(--color-base-content);
-          background-image: none;
-        }
       }
     }
   }
@@ -1571,6 +1519,16 @@
       }
     }
   }
+  .hover\:badge-neutral {
+    &:hover {
+      @media (hover: hover) {
+        @layer daisyui.modifier {
+          --badge-color: var(--color-neutral);
+          --badge-fg: var(--color-neutral-content);
+        }
+      }
+    }
+  }
   .focus\:bg-base-200 {
     &:focus {
       background-color: var(--color-base-200);
@@ -1601,6 +1559,16 @@
   .focus\:ring-blue-500 {
     &:focus {
       --tw-ring-color: var(--color-blue-500);
+    }
+  }
+  .focus\:outline-hidden {
+    &:focus {
+      --tw-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
     }
   }
   .focus\:outline-none {
