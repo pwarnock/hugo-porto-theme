@@ -1,7 +1,6 @@
 {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 
-
 <div class="flex items-center">
   <div class="my-2 flex whitespace-nowrap items-center">
     <i class="bx bx-calendar text-base-300 h-5"></i>
@@ -14,11 +13,13 @@
       {{ if eq .ReadingTime 1 }}minute{{ else }}minutes{{ end }}
     </span>
   </div>
-  <div class="my-2 flex whitespace-nowrap items-center">
-    <i class="bx bx-purchase-tag-alt text-base-300 h-4"></i>
-    {{ range index .Params "tags" }}
-      {{ $href := print (absURL "tags/") (urlize .) }}
-      <a class="text-primary hover:underline text-sm mx-1 h-5" href="{{ $href }}" aria-label="{{ . }}">{{ . }}</a>
-    {{ end }}
+  <div class="my-2 flex items-center">
+    <i class="bx bx-purchase-tag-alt text-base-300 h-4 mr-2"></i>
+    <div class="flex flex-wrap gap-1">
+      {{ range index .Params "tags" }}
+        {{ $href := print (absURL "tags/") (urlize .) }}
+        <a class="badge badge-ghost hover:badge-neutral px-2 py-1 text-xs" href="{{ $href }}" aria-label="{{ . }}">{{ . }}</a>
+      {{ end }}
+    </div>
   </div>
 </div>
