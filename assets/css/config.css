@@ -43,5 +43,5 @@
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, retro, cyberpunk, halloween;
+  themes: ["light", "dark", "retro", "cyberpunk", "halloween"]
 }
