@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* Custom color extensions from the original config */
+  --color-light-bg: white;
+  --color-dark-bg: #111827;
+  --color-light-text-primary: #1f2937;
+  --color-dark-text-primary: #f9fafb;
+  --color-light-text-secondary: #6b7280;
+  --color-dark-text-secondary: #9ca3af;
+  --color-light-bg-secondary: #f3f4f6;
+  --color-dark-bg-secondary: #1f2937;
+
+  /* Font family extensions */
+  --font-family-sans: 'Roboto', 'sans-serif';
+  --font-family-poppins: 'Poppins', 'sans-serif';
+
+  /* Font size extensions */
+  --font-size-h1: 2.25rem;
+
+  /* Font weight extensions */
+  --font-weight-h1: 400;
+
+  /* Typography plugin configuration - keeping existing styles */
+  --typography-body: hsl(var(--bc));
+  --typography-headings: hsl(var(--bc));
+  --typography-lead: hsl(var(--bc));
+  --typography-links: hsl(var(--p));
+  --typography-bold: hsl(var(--bc));
+  --typography-counters: hsl(var(--bc));
+  --typography-bullets: hsl(var(--bc));
+  --typography-hr: hsl(var(--b3));
+  --typography-quotes: hsl(var(--bc));
+  --typography-quote-borders: hsl(var(--b3));
+  --typography-captions: hsl(var(--bc));
+  --typography-code: hsl(var(--bc));
+  --typography-pre-code: hsl(var(--bc));
+  --typography-pre-bg: hsl(var(--b2));
+  --typography-th-borders: hsl(var(--b3));
+  --typography-td-borders: hsl(var(--b3));
+}
+
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, retro, cyberpunk, halloween;
+}
