@@ -3,11 +3,11 @@
     <div class="grid grid-cols-1 gap-6">
       <div class="bg-base-200 px-8 py-10 rounded-md post-content">
         <img
-          class="rounded-md mb-4 w-full"
+          class="rounded-md mb-4 max-w-full max-h-96 object-cover mx-auto"
           src="{{ .RelPermalink }}/{{ .Params.image }}"
           alt="{{ .Title }}"
           title="{{ .Title }}" />
-        <h1 class="font-medium text-base-content text-3xl md:text-4xl mb-5">{{ .Title }}</h1>
+        <h1 class="font-medium text-base-content text-2xl md:text-3xl mb-5">{{ .Title }}</h1>
         {{ partial "posts/meta.html" . }}
 
         {{ .Content | safeHTML }}
